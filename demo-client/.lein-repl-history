@@ -1,0 +1,7 @@
+(println (System/getProperty "java.version"))
+exit()
+(require '[com.example.addressbook.Greeter.client :as greeter])
+(require '[protojure.grpc.client.providers.http2 :as grpc.http2])
+(def client @(grpc.http2/connect {:uri "http://localhost:8080"}))
+@(greeter/Hello client {:name "Janet Johnathan Doe"})
+exit()
